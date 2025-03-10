@@ -48,15 +48,15 @@ router.get('/main', saveMethodHandler);
  *             properties:
  *               name:
  *                 type: string
- *               age:
- *                 type: integer
- *               email:
+ *               teacher:
+ *                 type: string
+ *               alumnes:
  *                 type: string
  *     responses:
  *       201:
  *         description: Subject creado exitosamente
  */
-router.post('/users', createSubjectHandler);
+router.post('/subjects', createSubjectHandler);
 
 /**
  * @openapi
@@ -78,12 +78,12 @@ router.post('/users', createSubjectHandler);
  *                 properties:
  *                  name:
  *                     type: string
- *                  age:
- *                    type: integer
- *                  email:
+ *                  teacher:
+ *                    type: string
+ *                  alumnes:
  *                     type: string
  */
-router.get('/users', getAllSubjectsHandler);
+router.get('/subjects', getAllSubjectsHandler);
 
 /**
  * @openapi
@@ -109,13 +109,13 @@ router.get('/users', getAllSubjectsHandler);
  *               properties:
  *                  name:
  *                   type: string
- *                 age:
- *                   type: integer
- *                 email:
+ *                 teacher:
+ *                   type: string
+ *                 alumnes:
  *                    type: string
  *       404:
  *         description: Subject no encontrado
  */
-router.get('/users/:id', getSubjectByIdHandler);
+router.get('/subjects/:id', getSubjectByIdHandler);
 
 export default router;

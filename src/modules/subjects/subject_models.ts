@@ -17,8 +17,8 @@ const subjectSchema = new mongoose.Schema({
 
 export interface ISubject{
     name : string;
-    age : number;
-    email : string;
+    teacher : string;
+    alumnes : string;
 
 }
 

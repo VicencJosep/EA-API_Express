@@ -1,5 +1,5 @@
 // src/services/user_service.ts
-import Subject, { ISubject } from './subject_models.js';
+import Subject, { ISubject } from '../subjects/subject_models.js';
 
 export const saveMethod = () => {
     return 'Hola';
