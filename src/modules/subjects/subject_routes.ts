@@ -4,7 +4,9 @@ import {
     saveMethodHandler,
     createSubjectHandler,
     getAllSubjectsHandler,
-    getSubjectByIdHandler    
+    getSubjectByIdHandler,
+    updateSubjectHandler,
+    deleteSubjectHandler    
 } from '../subjects/subject_controller.js';
 
 const router = express.Router();
@@ -51,7 +53,9 @@ router.get('/main', saveMethodHandler);
  *               teacher:
  *                 type: string
  *               alumnes:
- *                 type: string
+ *                 type: array
+ *                 items:
+ *                   type: string
  *     responses:
  *       201:
  *         description: Subject creado exitosamente
@@ -76,12 +80,14 @@ router.post('/subjects', createSubjectHandler);
  *               items:
  *                 type: object
  *                 properties:
- *                  name:
+ *                   name:
  *                     type: string
- *                  teacher:
- *                    type: string
- *                  alumnes:
+ *                   teacher:
  *                     type: string
+ *                   alumnes:
+ *                     type: array
+ *                     items:
+ *                       type: string
  */
 router.get('/subjects', getAllSubjectsHandler);
 
@@ -107,15 +113,76 @@ router.get('/subjects', getAllSubjectsHandler);
  *             schema:
  *               type: object
  *               properties:
- *                  name:
+ *                 name:
  *                   type: string
  *                 teacher:
  *                   type: string
  *                 alumnes:
- *                    type: string
+ *                   type: array
+ *                   items:
+ *                     type: string
  *       404:
  *         description: Subject no encontrado
  */
 router.get('/subjects/:id', getSubjectByIdHandler);
+
+/**
+ * @openapi
+ * /api/subjects/{id}:
+ *   put:
+ *     summary: Actualiza un subject por ID
+ *     description: Modifica los detalles de un subject específico.
+ *     tags:
+ *       - Subjects
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               teacher:
+ *                 type: string
+ *               alumnes:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *     responses:
+ *       200:
+ *         description: Subject actualizado exitosamente
+ *       404:
+ *         description: Subject no encontrado
+ */
+router.put('/subjects/:id', updateSubjectHandler);
+
+/**
+ * @openapi
+ * /api/subjects/{id}:
+ *   delete:
+ *     summary: Elimina un subject por ID
+ *     description: Elimina un subject específico de la base de datos.
+ *     tags:
+ *       - Subjects
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Subject eliminado exitosamente
+ *       404:
+ *         description: Subject no encontrado
+ */
+router.delete('/subjects/:id', deleteSubjectHandler);
 
 export default router;

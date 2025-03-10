@@ -10,7 +10,7 @@ const subjectSchema = new mongoose.Schema({
         required : true
     },
     alumnes: {
-        type : String,
+        type : [String],
         required : true
     }
 });
@@ -18,7 +18,7 @@ const subjectSchema = new mongoose.Schema({
 export interface ISubject{
     name : string;
     teacher : string;
-    alumnes : string;
+    alumnes : string[];
 
 }
 
