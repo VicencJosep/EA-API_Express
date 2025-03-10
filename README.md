@@ -1,4 +1,10 @@
 # Prova API
+#Referències:
+- GitHug Copilot
+- ChatGPT
+- https://www.youtube.com/watch?v=-MTSQjw5DrM
+- https://www.youtube.com/watch?v=T1QFGwOnQxQ
+- https://github.com/JoanPerezPerez/APIseminari_EA
 
 ## Descripció
 Una API bàsica desenvolupada en Node.js amb TypeScript, utilitzant Express i Mongoose per a la gestió de dades en MongoDB. A més, s'inclou documentació amb Swagger.
